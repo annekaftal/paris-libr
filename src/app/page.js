@@ -24,10 +24,11 @@ export default async function Home() {
   };
 
   const bookshops = await getData();
+  const parisBookshops =  bookshops.filter((bookshop) => bookshop.fields.ville === "PARIS" && bookshop.fields.label_01 === "Label LiR")  
 
   return (
     <>
-      <List bookshops={bookshops} />
+      <List parisBookshops={parisBookshops} />
     </>
   );
 }
