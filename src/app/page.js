@@ -1,4 +1,5 @@
 import List from "./List";
+import Map from "../../components/Map";
 
 export default async function Home() {
   const getData = async () => {
@@ -28,6 +29,7 @@ export default async function Home() {
 
   return (
     <>
+      <Map/>
       <List parisBookshops={parisBookshops} />
     </>
   );

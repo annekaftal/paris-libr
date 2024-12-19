@@ -4,8 +4,8 @@ export default function List({parisBookshops}) {
   console.log(parisBookshops);
   return <>
   <div className="flex flex-col gap-10"> 
-  {parisBookshops.map((bookshop) => (
-    <div>
+  {parisBookshops.map((bookshop, index) => (
+    <div key={index}>
     <h4>{bookshop.fields.nom_structure}</h4>
     <p>{bookshop.fields.adresse}</p>
     <p>{bookshop.fields.code_postal}</p>
