@@ -25,11 +25,18 @@ export default async function Home() {
   };
 
   const bookshops = await getData();
-  const parisBookshops =  bookshops.filter((bookshop) => bookshop.fields.ville === "PARIS" && bookshop.fields.label_01 === "Label LiR")  
+  const parisBookshops = bookshops.filter(
+    (bookshop) =>
+      bookshop.fields.ville === "PARIS" &&
+      bookshop.fields.label_01 === "Label LiR"
+  );
 
   return (
     <>
-      <Map/>
+      <div className="h-96">
+        <Map />
+      </div>
+
       <List parisBookshops={parisBookshops} />
     </>
   );
