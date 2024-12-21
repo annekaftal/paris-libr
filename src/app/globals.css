@@ -17,12 +17,9 @@ body {
 select {
   background-color: var(--background);
   padding: 0.5rem;
-  padding-right: 1rem;
+  padding-right: 0.5rem;
+  margin: 0.5rem;
   font-weight: bold;
-}
-
-select:focus{
-  background-color: red;
 }
 
 .map {
@@ -38,4 +35,5 @@ select:focus{
   width: 18.5rem;
   padding: 1rem;
   border-radius: 10px;
+  margin: auto;
 }

@@ -13,7 +13,7 @@ export default function BookshopSearch({ parisBookshops }) {
   };
   return (
     <>
-      <div className="flex justify-between items-end mr-2">
+      <div className="flex justify-between items-end mr-1">
         <h1 className="font-extrabold text-9xl">ParisLibr.</h1>
         <Filter handleChange={handleChange} />
       </div>
