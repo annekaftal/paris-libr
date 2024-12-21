@@ -1,5 +1,4 @@
-import List from "./List";
-import Map from "../../components/Map";
+import BookshopSearch from "./BookshopSearch";
 
 export default async function Home() {
   const getData = async () => {
@@ -31,19 +30,11 @@ export default async function Home() {
       bookshop.fields.label_01 === "Label LiR"
   );
 
-  function flyTo() {
-    map.flyTo([48.863704964791864, 2.334678158416777], 15);
-    mode = 1;
-    return mode;
-  }
-
   return (
     <>
       <div className="h-96 m-10">
-        <Map parisBookshops={parisBookshops} />
+        <BookshopSearch parisBookshops={parisBookshops} />
       </div>
-
-      <List parisBookshops={parisBookshops} />
     </>
   );
 }

@@ -12,7 +12,7 @@ import {
 import "../../src/app/globals.css";
 import { useCallback, useEffect, useRef, useState } from "react";
 
-export default function Map({ parisBookshops }) {
+export default function Map({ parisBookshops, district, setDistrict }) {
   const coordinates = [
     [48.863704964791864, 2.334678158416777],
     [48.86898506731983, 2.342585252549832],
@@ -36,11 +36,6 @@ export default function Map({ parisBookshops }) {
     [48.863936141695014, 2.403323017682067],
   ];
 
-  const [district, setDistrict] = useState(null);
-  const [adresse, setAdresse] = useState(null);
-  console.log(district);
-  console.log(coordinates[district]);
-
   const ZoomHandler = () => {
     const map = useMap();
     const flyToMarker = useCallback(
@@ -53,19 +48,18 @@ export default function Map({ parisBookshops }) {
       [map]
     );
     useEffect(() => {
-      if (coordinates[district]) {
-        flyToMarker(coordinates[district], 14);
+      if (coordinates[district - 1]) {
+        flyToMarker(coordinates[district - 1], 14);
       } else {
         flyToMarker([48.860213, 2.342567], 11.5);
-        setAdresse(null);
+        setDistrict(null);
       }
     }, [flyToMarker]);
   };
 
   const handleChange = (e) => {
     const selectedDistrict = e.target.value;
-    setDistrict(selectedDistrict - 1);
-    setAdresse(selectedDistrict);
+    setDistrict(selectedDistrict);
   };
   return (
     <>
@@ -81,8 +75,8 @@ export default function Map({ parisBookshops }) {
         />
         {parisBookshops
           .filter((bookshop) =>
-            adresse !== null
-              ? bookshop.fields.code_postal == `750${adresse}`
+            district !== null
+              ? bookshop.fields.code_postal == `750${district}`
               : true
           )
           .map((bookshop, index) => (
