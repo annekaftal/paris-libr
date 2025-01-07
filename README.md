@@ -10,10 +10,7 @@ ParisLibr allows users to search for independent bookshops in Paris, using a dis
     - Frontend component conception
     - Data manipulation and visualisation using the Data Gouv API
     - Integration of a Leaflet map
-- Tech stack:
-	- Fullstack framework: Next.js
-	- Frontend: React, Javascript, TailwindCSS
-	- Backend: Javascript, Node.js
+- Tech stack: Next.js, React, Javascript, TailwindCSS
 
    
 ## Demo
